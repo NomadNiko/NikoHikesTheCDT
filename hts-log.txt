@@ -1,0 +1,24 @@
+HTTrack3.49-2+htsswf+htsjava launched on Sat, 28 Jan 2023 22:40:15 at https://thepadlife.com/silverthorne/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://thepadlife.com/silverthorne/ -O1 "C:\My Web Sites\The Spaz\TheSpaz" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+22:40:17	Warning: 	Found for https://thepadlife.com/robots.txt
+22:40:17	Warning: 	File has moved from https://thepadlife.com/robots.txt to https://thepadlife.com/cgi-sys/suspendedpage.cgi
+22:47:26	Error: 	"Not Found" (404) at link https://thepadlife.com/silverthorne/%22https:/thepadlife.com/silverthorne/wp-content/uploads/2020/07/the-pad-a-texture-600x300-light.jpg (from https://thepadlife.com/silverthorne/)
+22:47:26	Error: 	"Not Found" (404) at link https://thepadlife.com/silverthorne/%22https:/thepadlife.com/silverthorne/wp-content/uploads/2020/07/the-pad-a-texture-2000x100-light.jpg (from https://thepadlife.com/silverthorne/)
+22:47:26	Error: 	"Not Found" (404) at link https://thepadlife.com/silverthorne/%22https:/thepadlife.com/silverthorne/wp-content/uploads/2021/11/Blue-River_1-scaled.jpg (from https://thepadlife.com/silverthorne/)
+22:47:26	Error: 	"Not Found" (404) at link https://thepadlife.com/silverthorne/%22https:/thepadlife.com/silverthorne/wp-content/uploads/2022/01/the-pad-event-space-photo.jpg (from https://thepadlife.com/silverthorne/)
+22:47:26	Error: 	"Not Found" (404) at link https://thepadlife.com/silverthorne/https:/thepadlife.com/silverthorne/wp-content/uploads/2020/07/the-pad-a-texture-2000x100-light.jpg (from https://thepadlife.com/silverthorne/)
+22:47:41	Error: 	"Bad Request" (400) at link https://thepadlife.com/silverthorne/wp-admin/admin-ajax.php (from https://thepadlife.com/silverthorne/)
+22:47:55	Warning: 	Found for thepadlife.com/robots.txt
+22:47:55	Warning: 	File has moved from thepadlife.com/robots.txt to http://thepadlife.com/cgi-sys/suspendedpage.cgi
+22:48:10	Error: 	"Not Found" (404) at link https://thepadlife.com/silverthorne/POST (from https://connect.facebook.net/en_US/fbevents.js)
+22:48:12	Warning: 	Moved Permanently for https://thepadlife.com/silverthorne/?p=774
+22:48:12	Warning: 	File has moved from https://thepadlife.com/silverthorne/?p=774 to https://thepadlife.com/silverthorne/rooms/
+22:48:12	Error: 	"Not Found" (404) at link https://thepadlife.com/silverthorne/rooms/%22https:/thepadlife.com/silverthorne/wp-content/uploads/2022/01/the-pad-rooms-bg-v2.jpg (from https://thepadlife.com/silverthorne/rooms/)
+22:48:12	Error: 	"Not Found" (404) at link https://thepadlife.com/silverthorne/rooms/%22https:/thepadlife.com/silverthorne/wp-content/uploads/2020/07/the-pad-a-texture-600x300-light.jpg (from https://thepadlife.com/silverthorne/rooms/)
+22:48:12	Error: 	"Not Found" (404) at link https://thepadlife.com/silverthorne/rooms/%22https:/thepadlife.com/silverthorne/wp-content/uploads/2020/07/the-pad-a-texture-2000x100-light.jpg (from https://thepadlife.com/silverthorne/rooms/)
