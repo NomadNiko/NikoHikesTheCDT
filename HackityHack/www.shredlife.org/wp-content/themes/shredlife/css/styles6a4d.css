@@ -1,0 +1,135 @@
+/* .hero {
+  background-color: #ebcf98;
+} */
+
+/* .navbar a {
+  color: #fff;
+} */
+
+.navbar-item {
+  color: #fff !important; 
+}
+a.navbar-item:hover {
+  color: #000 !important;
+}
+a.is-active {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+.image img {
+  width: auto;
+}
+
+/* a.navbar-item:hover {
+  color: #000 !important;
+}
+
+.navbar-item.is-active a {
+  color: #fff !important;
+  background: #000 !important;
+} */
+
+.entry-header {
+  display: none !important;
+}
+
+.entry-title {
+  display: none !important;
+}
+
+/* @media screen and (max-width: 1023px) {
+  .navbar-menu {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+
+  .navbar-item.is-active {
+    background-color: #fff !important;
+    color: #000 !important;
+  }
+} */
+/* .navbar-burger {
+  color: #fff !important;
+  background-color: #000 !important;
+  border: 0 !important;
+} */
+
+.image-has-border {
+  border: 5px solid black !important;
+}
+
+.mobile-homepage-card img {
+  opacity: .5;
+  position: relative;
+  border: 3px solid black;
+}
+
+.mobile-homepage-card figure {
+  position: relative;
+}
+
+.mobile-homepage-card-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.logo-image {
+  display: block;
+  margin: 0 auto !important;
+  height: 30vh !important;
+  width: auto !important;
+}
+
+.hero-background {
+  position: relative;
+  background-image: url('../img/hero-bg.jpg');
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 35vh; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  width: 100%;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  /* background: rgba(128,128,128,0.4); */
+  background: rgba(256,256,256,.5);
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 1023px) {
+  .hero-background {
+    position: relative;
+    background-image: url('../img/hero-bg.jpg');
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 30vh; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    width: 100%;
+  }
+
+  .logo-image {
+    display: block;
+    margin: 0 auto !important;
+    height: 25vh !important;
+    width: auto !important;
+  }
+  
+  a.navbar-item {
+    color: #000 !important;
+  }
+
+  a.is-active {
+    background: #000 !important;
+    color: #fff !important;
+  }
+}
