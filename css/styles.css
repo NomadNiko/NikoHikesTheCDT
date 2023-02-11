@@ -625,7 +625,7 @@ progress {
 }
 
 .figure-caption {
-  font-size: 0.875em;
+  font-size:1.25em;
   color: #6c757d;
 }
 
@@ -11212,7 +11212,7 @@ header.masthead .site-heading .h1 {
 }
 
 .caption {
-  font-size: 0.875rem;
+  font-size: 1.25rem;
   font-style: italic;
   display: block;
   margin: 0;
