@@ -101,6 +101,10 @@ hr:not([size]) {
   height: 1px;
 }
 
+.emphasized {
+  font-style: italic; 
+}
+
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -11241,9 +11245,7 @@ header.masthead .site-heading .h1 {
 .post-preview > .post-meta > a {
   text-decoration: none;
 }
-.emphasized {
-   font-style: italic; 
-}
+
 @media (min-width: 992px) {
   .post-preview > a > .post-title {
     font-size: 2.25rem;
