@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Hiking The AT</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">NomadNiko.com</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
+                            href="https://www.instagram.com/nomadnikohikes/">Instagram</a></li>
+					<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://www.youtube.com/@nomadniko">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('assets/img/at-bk.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1>Hiking the <br>Appalachian Trail.</h1>
+                        <h2 class="subheading">My first Thru-Hike.</h2>
+                        <span class="meta">
+                            Posted by
+                            <a href="#!">Niko Halley</a>
+                            on January 31, 2023
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Post Content-->
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <h2 class="section-heading" style="text-align:center;">The Beginning:<br>Preparing for the AT </h2>
+                    
+					<p>So here we are. The beginning of a new adventure. I've decided to hike 2,190 miles across America.</p>
+                    <p>I'll be hiking the AT (Appalachian Trail) starting late March to early April, hoping to finish by the end of September.</p>
+                    <p>In order to cut down on money, I'll be keeping my "zero" days out of towns and will instead have "nero's" (camping nearby on town days instead of staying in a hotel).</p>
+					
+					<br>
+					
+					<h3 class="section-heading" style="text-align:center;">Trail Map</h3>
+					<p style="text-align: center;"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1bcu7DtR-KFNHGVEWiyggMMzaevXCF13-" height="650px" width="100%"></iframe></p>
+					
+                    
+					<h3 class="section-heading" style="text-align:center;">Equipment</h3>
+					
+					<p> Backpack - HyperLite Mountain Gear WindRider 3400 - 900g
+					<p> Tent - Big Agnes Copper Spur HV UL 2 - 1400g </p> 
+					<p> Sleep Bag - Big Agnes Torchlight UL 20 - 1200g </p>
+					<p> Sleep Pad - ThermaRest Z Lite Sol - 410g </p>
+					<p> Stove System - JetBoil Stash - 430g </p> 
+					<p> Water Filter - Sawyer Squeeze - 85g </p>
+					<p> Water Res - Camelbak Fusion 3L - 155g </p>
+					<br>
+					<h5> Total Weight: 4580 g / 161.5 oz / 10.1 lbs </h5>
+					
+					<br>
+					
+					<h3 class="section-heading" style="text-align:center;">Clothing</h3>
+
+					<p> Rain Jacket - Outdoor Research Helium - 179g
+					<p> Down Hoody - TBD -  Est~ 220g  </p>
+					<p> Hiking Pants - TBD -  Est~ 200g  </p>
+					<p> Hiking Shorts - Outdoor Research Ferrosi Shorts - 189g </p>
+					<p> Midweight Long-Sleeve Top - Helly Hensen Merino Wool Midlayer -  Est~ 160g  </p>
+					<p> Midweight Bottoms - Helly Hensen Merino Wool Midlayer -  Est~ 180g  </p>					
+					<p> Lightweight Hiking Top - TBD - Est~ 180g </p>
+					<p> Socks - 2x Darn Tough Hiker Micro-Crew - 140g </p>
+					<br>
+					<h5> Total Weight: 1448 g / 51.1 oz / 3.2 lbs </h5>
+					
+					<br>
+
+					
+										
+					<h3 class="section-heading" style="text-align:center;">Electronics</h3>
+					
+					<p> Battery Bank - NiteCore UL 10,000 - 150g </p>
+					<p> Headlamp - TBD - Est~ 200g </p>
+					<br>
+					<h5> Total Weight: 350 g / 12.3 oz / 0.8 lbs </h5>
+					
+					<br>
+					
+					<h3 class="section-heading" style="text-align:center;">Trail Weight</h3>
+					<p> I'm trying my best to keep this as low as possible. In order to be considered a Lightweight Hiker this must be under 20 pounds.</p> 
+
+					<h4>Total Base Weight: 6378 g - 225 oz - 14.1 lbs </h4>
+					
+					<p> I've already surpassed 10 pounds, which is needed to be considered an UltraLight Hiker. Those guys are insane...</p>
+
+					<br>
+					
+					
+                    <h3 class="section-heading" style="text-align:center;">Trail Food</h3>
+					
+					<p> I plan to save money by dehydrating my own high protien meals, vacuum sealing portions and assembling variety packs. </p>
+					<p> I love eating trail meals, however looking at the nutritional information, they are often lacking for the number of calories I'll be burning on trail. The cost for 3-4 of these each day will quickly add up to $45+. </p>
+					<p> I know I can do better!!! My goal is to aim for 650 Calories, 50g of Protien at only $5 or less per serving.</p>
+					<p> Just got my ChefMan Food Dehydrator and currently running a test with some frozen mixed berries. </p>
+					<img src='assets/img/food-001.jpg' style="center" alt="Hydrator" width="300">
+					<img src='assets/img/food-002.jpg' style="center" alt="Berries" width="300">
+					<br>
+					<p>My goal is to pack in as much protein, fat and calories into a variety of 5 or 6 meals that I like a lot. I'll then make these in huge batches that will make up a majority of my meals.</p>
+					<p>I'll then also make one off meals that I like, but that I might get sick of eating frequently.  These, I'll only make one batch of 4 or 5 servings, but I'll make a larger number of these. Hopefully around 12.</p>
+					<p>My food resupplies will consist a balanced mix, however some will be more protien heavy, some more fruit and veg heavy, and some more carb heavy. This way I can have some control over the boxes I request. </p>
+					<p>I'll also have a detailed list of what is in each box with me on the trail so that I can request a specific box. I can then keep track of what I have left for the remainder of the trip, and adjust if necessary with town stops.<p>
+					<p> I was expecting to post an update today with a recipe and pictures of the portions, and me placing the food into the dehydrator today, however, I just hit my first setback... Someone threw away my huge batch of chicken and mushroom korma!!!</p> 
+					<p>Whelp, nothing I can do about that. I'll head to the store tomorrow and get the ingredients for both a Chicken & Mushroom Korma and a second, as of yet undecided dish. </p>  
+					<br>
+					<h4 class="nav-link px-lg-3 py-3 py-lg-4"> <a href="at-food.html">Click Here for my Recipes!</a></h4>
+					
+					<br>
+					
+					<h3 class="section-heading" style="text-align:center;">Mail Drops</h3>
+					<p> There are many businesses along the way that support thru-hikers by holding resupply boxes. </p>
+					<p> Below is a spreadsheet I've been creating in order to track the places I can have resupply boxes mailed to myself along the trail. </p>
+					<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRmF0dzBjuo9DoLOeDdpVW2GU3GtTYo4UaShUwPieb_6VBsFI-zxL-zGcMbcED_IptzijpdO3fYF0ni/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" width="800px" height="500px"></iframe>
+					
+					<br>
+					<p>Drop me a Comment Below!</p>
+<!-- begin wwww.htmlcommentbox.com -->
+					<div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Widget</a> is loading comments...</div>
+					<link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+					<script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24Jds7Su2XiwTj7IwbZHyof1"+"&opts=16798&num=10&ts=1676344673546");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+					<br>
+
+
+<!--            <div id="menu">
+                    <ul style="text-align:center;" class="navbar-nav ms-auto py-4 py-lg-0">
+                        <h1 class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="at-equip.html">Equipment</a></h1>
+                        <h1 class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="at-clothing.html">Clothing</a></h1>
+                        <h1 class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="at-food.html">Food & Hydration</a></h1>
+						<h1 class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="at-electronics.html">Electronics</a></h1>
+						<h1 class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="at-maps.html">Maps & GPS</a></h1>
+						<h1 class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="at-mail.html">Mail Drops</a></h1>
+                    </ul>
+                </div> 
+				
+				-->
+
+
+
+
+
+
+                <hr class="my-4" />
+                <!-- Pager-->
+            </div>
+        </div>
+    </div>
+    <!-- Footer-->
+    <footer class="border-top">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="small text-center text-muted fst-italic">Copyright &copy; Nomad Niko Inc 2023</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
