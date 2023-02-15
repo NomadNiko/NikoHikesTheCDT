@@ -172,6 +172,7 @@ p {
   font-size:  var(--bs-body-font-size);
   letter-spacing: 1.25px;
   line-height: 1.2;
+  text-align: center;
 }
 
 abbr[title],
