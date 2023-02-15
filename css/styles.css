@@ -170,6 +170,7 @@ p {
   margin-top: 0;
   margin-bottom: 1rem;
   font-size:  var(--bs-body-font-size);
+  letter-spacing: 2px;
 }
 
 abbr[title],
