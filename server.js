@@ -3,6 +3,11 @@ const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const app = express();
 const session = require('express-session');
+const cookieParser = require('cookie-parser')
+const { signinHandler, welcomeHandler, refreshHandler } = require('./handlers')
+
+app.use(bodyParser.json())
+app.use(cookieParser())
 
 class Session {
     constructor(username, expiresAt) {
