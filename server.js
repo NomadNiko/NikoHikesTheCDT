@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const app = express();
 const session = require('express-session');
 const cookieParser = require('cookie-parser')
-const { signinHandler, welcomeHandler, refreshHandler } = require('./handlers')
 
 app.use(bodyParser.json())
 app.use(cookieParser())
@@ -114,7 +113,7 @@ app.post('/login', (req, res) => {
     app.get('/welcome', welcomeHandler)
 });
 
-welcomeHandler = (req, res) => {
+const welcomeHandler = (req, res) => {
     // if this request doesn't have any cookies, that means it isn't
     // authenticated. Return an error code.
     if (!req.cookies) {
