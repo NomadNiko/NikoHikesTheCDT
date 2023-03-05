@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const session = require('express-session');
 const cookieParser = require('cookie-parser')
-const { v4: uuidv4 } = require('uuid');
+const uuid = require('uuid');
 app.use(bodyParser.json())
 app.use(cookieParser())
 
