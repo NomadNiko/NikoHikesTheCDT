@@ -63,7 +63,7 @@ app.post('/login', (req, res) => {
       return res.status(401).send('Invalid login credentials');
     }
     // User is authenticated, redirect to dashboard or homepage
-    res.redirect('/dashboard');
+    res.redirect('/test_auth.html');
   });
 });
 
