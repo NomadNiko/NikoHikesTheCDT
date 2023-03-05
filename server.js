@@ -2,6 +2,17 @@ const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const app = express();
+const session = require('express-session');
+
+// setActive
+
+app.use(session({
+  secret: 'iD10tPr00f1nG',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}));
+
 
 // Set up MySQL connection
 const connection = mysql.createConnection({
@@ -42,7 +53,7 @@ app.post('/signup', (req, res) => {
       console.error('Error creating new account:', err);
       return res.status(500).send('Error creating new account');
     }
-    res.redirect('/login'); // redirect to login page after successful account creation
+    res.redirect('/login.html'); // redirect to login page after successful account creation
   });
 });
 
@@ -57,12 +68,13 @@ app.post('/login', (req, res) => {
   connection.query(sql, values, (err, results) => {
     if (err) {
       console.error('Error checking login credentials:', err);
-      return res.status(500).send('Error checking login credentials');
+      return res.status(500).send('User doesnt exist, check Business Name');
     }
     if (results.length === 0) {
       return res.status(401).send('Invalid login credentials');
     }
     // User is authenticated, redirect to dashboard or homepage
+	  req.session.userId = user.id;
     res.redirect('/test_auth.html');
   });
 });
