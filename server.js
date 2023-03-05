@@ -114,7 +114,7 @@ app.post('/login', (req, res) => {
     app.get('/welcome', welcomeHandler)
 });
 
-const welcomeHandler = (req, res) => {
+welcomeHandler = (req, res) => {
     // if this request doesn't have any cookies, that means it isn't
     // authenticated. Return an error code.
     if (!req.cookies) {
