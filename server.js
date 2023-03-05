@@ -5,25 +5,10 @@ const app = express();
 const session = require('express-session');
 const cookieParser = require('cookie-parser')
 const uuid = require('uuid');
-const { businessname, password } = req.body;
-const username = businessname
 app.use(bodyParser.json())
 app.use(cookieParser())
 
-class Session {
-    constructor(username, expiresAt) {
-        this.username = username
-        this.expiresAt = expiresAt
-    }
 
-		// we'll use this method later to determine if the session has expired
-    isExpired() {
-        this.expiresAt < (new Date())
-    }
-}
-
-// this object stores the users sessions. For larger scale applications, you can use a database or cache for this purpose
-const sessions = {}
 
 // setActive
 
@@ -194,6 +179,21 @@ const refreshHandler = (req, res) => {
     res.cookie("session_token", newSessionToken, { expires: expiresAt })
     res.end()
 }
+
+class Session {
+    constructor(username, expiresAt) {
+        this.username = username
+        this.expiresAt = expiresAt
+    }
+
+		// we'll use this method later to determine if the session has expired
+    isExpired() {
+        this.expiresAt < (new Date())
+    }
+}
+
+// this object stores the users sessions. For larger scale applications, you can use a database or cache for this purpose
+const sessions = {}
 
 // Start the server on port 3000
 app.listen(3000, () => {
