@@ -1,62 +1,45 @@
-const loginForm = document.getElementById('login-form');
-const signupForm = document.getElementById('signup-form');
-
-// Handle login form submission
-loginForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  
-  const formData = new FormData(loginForm);
-  const businessName = formData.get('business-name');
-  const businessPassword = formData.get('business-password');
-  
-  const data = {
-    businessName,
-    businessPassword
-  };
-  
-  fetch('/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-    // Redirect to dashboard or homepage
-  })
-  .catch(error => console.error(error));
+document.addEventListener('DOMContentLoaded', function() {
+	const loginForm = document.getElementById('login-form');
+	const signupForm = document.getElementById('signup-form');
+	loginForm.addEventListener('submit', login);
+	signupForm.addEventListener('submit', signup);
 });
 
-// Handle signup form submission
-signupForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  
-  const formData = new FormData(signupForm);
-  const businessName = formData.get('business-name');
-  const businessPassword = formData.get('business-password');
-  const businessAddress = formData.get('business-address');
-  const businessDescription = formData.get('business-description');
-  
-  const data = {
-    businessName,
-    businessPassword,
-    businessAddress,
-    businessDescription
-  };
-  
-  fetch('/signup', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-    // Redirect to dashboard or homepage
-  })
-  .catch(error => console.error(error));
-});
+function login(event) {
+	event.preventDefault();
+	const businessname = document.getElementById('login-businessname').value;
+	const password = document.getElementById('login-password').value;
+	const xhr = new XMLHttpRequest();
+	xhr.open('POST', 'https://site.nomadniko.com/login');
+	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	xhr.onload = function() {
+		if (xhr.status === 200) {
+			alert('Logged in successfully!');
+			document.location.href = '/dashboard';
+			// redirect to dashboard or homepage
+		} else {
+			alert('Error: ' + xhr.statusText);
+		}
+	};
+	xhr.send('businessname=' + encodeURIComponent(businessname) + '&password=' + encodeURIComponent(password));
+}
+
+function signup(event) {
+	event.preventDefault();
+	const businessname = document.getElementById('signup-businessname').value;
+	const password = document.getElementById('signup-password').value;
+	const address = document.getElementById('signup-address').value;
+	const description = document.getElementById('signup-description').value;
+	const xhr = new XMLHttpRequest();
+	xhr.open('POST', 'https://site.nomadniko.com/signup');
+	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	xhr.onload = function() {
+		if (xhr.status === 200) {
+			alert('Account created successfully!');
+			document.location.reload();
+		} else {
+			alert('Error: ' + xhr.statusText);
+		}
+	};
+	xhr.send('businessname=' + encodeURIComponent(businessname) + '&password=' + encodeURIComponent(password) + '&address=' + encodeURIComponent(address) + '&description=' + encodeURIComponent(description));
+}
