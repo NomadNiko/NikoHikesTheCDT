@@ -5,6 +5,7 @@ const app = express();
 const session = require('express-session');
 const cookieParser = require('cookie-parser')
 const uuid = require('uuid');
+const username = businessname
 app.use(bodyParser.json())
 app.use(cookieParser())
 
