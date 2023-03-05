@@ -10,7 +10,7 @@ function login(event) {
 	const businessname = document.getElementById('login-businessname').value;
 	const password = document.getElementById('login-password').value;
 	const xhr = new XMLHttpRequest();
-	xhr.open('POST', 'http://site.nomadniko.com/login');
+	xhr.open('POST', 'https://site.nomadniko.com/login');
 	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xhr.onload = function() {
 		if (xhr.status === 200) {
@@ -31,7 +31,7 @@ function signup(event) {
 	const address = document.getElementById('signup-address').value;
 	const description = document.getElementById('signup-description').value;
 	const xhr = new XMLHttpRequest();
-	xhr.open('POST', 'http://site.nomadniko.com/signup');
+	xhr.open('POST', 'https://site.nomadniko.com/signup');
 	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xhr.onload = function() {
 		if (xhr.status === 200) {
