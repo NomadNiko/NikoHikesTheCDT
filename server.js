@@ -52,7 +52,7 @@ app.post('/login', (req, res) => {
   const hashedPassword = hashPassword(password); // hash the password for security
 
   // Check if there is a business in the database with the given name and password
-  const sql = `SELECT * FROM business WHERE businessname = ? AND password = ?`;
+  const sql = `SELECT * FROM business WHERE business_name = ? AND business_password = ?`;
   const values = [businessname, hashedPassword];
   connection.query(sql, values, (err, results) => {
     if (err) {
