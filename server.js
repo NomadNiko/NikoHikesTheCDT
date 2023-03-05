@@ -79,8 +79,8 @@ app.post('/login', (req, res) => {
 });
 
 const options = {
-  key: fs.readFileSync('/etc/ssl/private/site.key'),
-  cert: fs.readFileSync('/etc/ssl/certs/site.crt'),
+  key: fs.readFileSync('/etc/letsencrypt/live/site.nomadniko.com/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/site.nomadniko.com/fullchain.pem'),
 };
 
 https.createServer(options, app).listen(443, () => {
