@@ -3,6 +3,8 @@ const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const app = express();
 
+
+
 // Set up MySQL connection
 const connection = mysql.createConnection({
   host: '127.0.0.1',
@@ -66,6 +68,22 @@ app.post('/login', (req, res) => {
     res.redirect('/dashboard');
   });
 });
+
+const routes = [];
+
+app._router.stack.forEach(layer => {
+  if (layer.route) {
+    // Get the route path and HTTP methods
+    const path = layer.route.path;
+    const methods = layer.route.methods;
+    
+    // Push the route details to the array
+    routes.push({ path, methods });
+  }
+});
+
+// Log the registered routes
+console.log(routes);
 
 // Start the server on port 3000
 app.listen(3000, () => {
