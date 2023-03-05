@@ -75,7 +75,7 @@ app.post('/login', (req, res) => {
     }
     // User is authenticated, redirect to dashboard or homepage
 	  req.session.userId = 'iD10tPr00f1nG';
-    res.redirect('/test_auth.html');
+    return res.status(200).send('Password Accepted');
   });
 });
 
