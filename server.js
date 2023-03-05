@@ -1,16 +1,25 @@
-const https = require('https');
-const fs = require('fs');
 const express = require('express');
+const mysql = require('mysql');
 const bodyParser = require('body-parser');
-const mariadb = require('mariadb');
-
 const app = express();
 
-const pool = mariadb.createPool({
-  host: 'localhost',
+
+
+// Set up MySQL connection
+const connection = mysql.createConnection({
+  host: '127.0.0.1',
   user: 'root',
   password: 'root',
   database: 'iexplor'
+});
+
+// Connect to MySQL
+connection.connect((err) => {
+  if (err) {
+    console.error('Error connecting to MySQL:', err);
+    return;
+  }
+  console.log('Connected to MySQL as ID', connection.threadId);
 });
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -70,8 +79,8 @@ app.post('/login', (req, res) => {
 });
 
 const options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/site.nomadniko.com/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/site.nomadniko.com/fullchain.pem'),
+  key: fs.readFileSync('/etc/ssl/private/site.key'),
+  cert: fs.readFileSync('/etc/ssl/certs/site.crt'),
 };
 
 https.createServer(options, app).listen(443, () => {
