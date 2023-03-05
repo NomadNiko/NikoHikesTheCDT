@@ -15,7 +15,6 @@ function login(event) {
 	xhr.onload = function() {
 		if (xhr.status === 200) {
 			alert('Logged in successfully!');
-			document.location.href = '/test_auth.html';
 			// redirect to test_auth
 		} else {
 			alert('Error: ' + xhr.statusText);
