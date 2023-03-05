@@ -88,7 +88,7 @@ app.post('/login', (req, res) => {
     const expiresAt = new Date(+now + 120 * 1000)
 
     // create a session containing information about the user and expiry time
-    const session = new Session(username, expiresAt)
+    const session = new Session(businessname, expiresAt)
     // add the session information to the sessions map
     sessions[sessionToken] = session
 
@@ -134,7 +134,7 @@ const welcomeHandler = (req, res) => {
 
     // If all checks have passed, we can consider the user authenticated and
     // send a welcome message
-    res.send(`Welcome  ${userSession.username}!`).end()
+    res.send(`Welcome  ${userSession.businessname}!`).end()
 }	
 
 const refreshHandler = (req, res) => {
@@ -168,7 +168,7 @@ const refreshHandler = (req, res) => {
     // renew the expiry time
     const now = new Date()
     const expiresAt = new Date(+now + 120 * 1000)
-    const session = new Session(userSession.username, expiresAt)
+    const session = new Session(userSession.businessname, expiresAt)
 
     // add the new session to our map, and delete the old session
     sessions[newSessionToken] = session
@@ -181,8 +181,8 @@ const refreshHandler = (req, res) => {
 }
 
 class Session {
-    constructor(username, expiresAt) {
-        this.username = username
+    constructor(businessname, expiresAt) {
+        this.businessname = businessname
         this.expiresAt = expiresAt
     }
 
