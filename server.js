@@ -88,7 +88,9 @@ app.post('/login', (req, res) => {
     if (results.length === 0) {
       return res.status(401).send('Invalid login credentials');
     }
-    // User is authenticated, redirect to dashboard or homepage
+
+  });
+      // User is authenticated, redirect to dashboard or homepage
 	  const sessionToken = uuid.v4()
 	   // set the expiry time as 120s after the current time
     const now = new Date()
@@ -105,7 +107,6 @@ app.post('/login', (req, res) => {
     res.end()
 	  
     app.get('/welcome', welcomeHandler)
-  });
 });
 
 const welcomeHandler = (req, res) => {
