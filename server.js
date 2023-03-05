@@ -1,15 +1,11 @@
-const https = require('https');
 const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
-const fs = require('fs');
 const app = express();
-
-
 
 // Set up MySQL connection
 const connection = mysql.createConnection({
-  host: '127.0.0.1',
+  host: 'localhost',
   user: 'root',
   password: 'root',
   database: 'iexplor'
@@ -24,67 +20,61 @@ connection.connect((err) => {
   console.log('Connected to MySQL as ID', connection.threadId);
 });
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// Use body-parser middleware to parse request bodies
+app.use(bodyParser.urlencoded({ extended: true }));
 
+// Serve index.html as the homepage
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.sendFile(__dirname + '/index.html');
 });
 
+// Handle POST request to create a new business account
 app.post('/signup', (req, res) => {
-  const { businessName, businessPassword, businessAddress, businessDescription } = req.body;
-  pool.getConnection()
-    .then(conn => {
-      conn.query(`INSERT INTO business (name, password, address, description) VALUES (?, ?, ?, ?)`, [businessName, businessPassword, businessAddress, businessDescription])
-        .then(result => {
-          console.log(`Inserted ${result.affectedRows} row(s)`);
-          res.status(200).send('Account created successfully!');
-          conn.release();
-        })
-        .catch(error => {
-          console.log(error);
-          res.status(500).send('Internal Server Error');
-          conn.release();
-        });
-    })
-    .catch(error => {
-      console.log(error);
-      res.status(500).send('Internal Server Error');
-    });
+  const { businessname, password, address, description } = req.body;
+  const hashedPassword = hashPassword(password); // hash the password for security
+
+  // Insert new row into business table with provided information
+  const sql = `INSERT INTO business (businessname, password, address, description)
+               VALUES (?, ?, ?, ?)`;
+  const values = [businessname, hashedPassword, address, description];
+  connection.query(sql, values, (err, result) => {
+    if (err) {
+      console.error('Error creating new account:', err);
+      return res.status(500).send('Error creating new account');
+    }
+    res.redirect('/login'); // redirect to login page after successful account creation
+  });
 });
 
+// Handle POST request to log in to an existing business account
 app.post('/login', (req, res) => {
-  const { businessName, businessPassword } = req.body;
-  pool.getConnection()
-    .then(conn => {
-      conn.query(`SELECT * FROM business WHERE name=? AND password=?`, [businessName, businessPassword])
-        .then(rows => {
-          if (rows.length === 1) {
-            console.log('Login successful');
-            res.status(200).send('Login successful!');
-          } else {
-            console.log('Login failed');
-            res.status(401).send('Unauthorized');
-          }
-          conn.release();
-        })
-        .catch(error => {
-          console.log(error);
-          res.status(500).send('Internal Server Error');
-          conn.release();
-        });
-    })
-    .catch(error => {
-      console.log(error);
-      res.status(500).send('Internal Server Error');
-    });
+  const { businessname, password } = req.body;
+  const hashedPassword = hashPassword(password); // hash the password for security
+
+  // Check if there is a business in the database with the given name and password
+  const sql = `SELECT * FROM business WHERE businessname = ? AND password = ?`;
+  const values = [businessname, hashedPassword];
+  connection.query(sql, values, (err, results) => {
+    if (err) {
+      console.error('Error checking login credentials:', err);
+      return res.status(500).send('Error checking login credentials');
+    }
+    if (results.length === 0) {
+      return res.status(401).send('Invalid login credentials');
+    }
+    // User is authenticated, redirect to dashboard or homepage
+    res.redirect('/dashboard');
+  });
 });
 
-const options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/site.nomadniko.com/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/site.nomadniko.com/fullchain.pem'),
-};
-
-https.createServer(options, app).listen(443, () => {
-  console.log('Server listening on port 443');
+// Start the server on port 3000
+app.listen(3000, () => {
+  console.log('Server listening on port 3000');
 });
+
+// Helper function to hash a password for storage in the database
+function hashPassword(password) {
+  // Implementation of password hashing would go here, for example using bcrypt or SHA-256
+  // This is just a placeholder for demonstration purposes
+  return password;
+}
