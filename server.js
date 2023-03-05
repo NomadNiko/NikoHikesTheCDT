@@ -34,7 +34,7 @@ app.post('/signup', (req, res) => {
   const hashedPassword = hashPassword(password); // hash the password for security
 
   // Insert new row into business table with provided information
-  const sql = `INSERT INTO business (businessname, password, address, description)
+  const sql = `INSERT INTO business (business_name, business_password, business_address, business_description)
                VALUES (?, ?, ?, ?)`;
   const values = [businessname, hashedPassword, address, description];
   connection.query(sql, values, (err, result) => {
