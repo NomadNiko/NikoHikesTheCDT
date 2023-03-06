@@ -135,7 +135,7 @@ app.post('/welcome', (req, res) => {
     // If all checks have passed, we can consider the user authenticated and
     // send a welcome message
     res.send(`Welcome  ${userSession.businessname}!`).end()
-}	
+)}	
 
 const refreshHandler = (req, res) => {
     // (BEGIN) The code from this point is the same as the first part of the welcomeHandler
