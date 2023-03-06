@@ -97,7 +97,7 @@ app.post('/login', (req, res) => {
     res.cookie("session_token", sessionToken, { expires: expiresAt })
     res.end()
 	  
-    app.get('/welcome', welcomeHandler)
+    app.get('/welcome')
 });
 
 app.post('/welcome', (req, res) => {
