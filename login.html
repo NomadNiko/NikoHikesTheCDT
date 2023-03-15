@@ -3,14 +3,6 @@
 
 <head>
 
-    <?php
-    session_start();
-    if $_SESSION['authenticated'] !== false) {
-      // Session variable 'authenticated' is not set to true
-      header("Location: exit.php");
-      exit();
-    }
-    ?>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -32,7 +24,14 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
 </head>
-
+    <?php
+    session_start();
+    if $_SESSION['authenticated'] !== false) {
+      // Session variable 'authenticated' is not set to true
+      header("Location: exit.php");
+      exit();
+    }
+    ?>
 <body>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
