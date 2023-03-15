@@ -2,6 +2,16 @@
 <html lang="en">
 
 <head>
+
+    <?php
+    session_start();
+    if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+      // Session variable 'authenticated' is not set to true
+      header("Location: exit.html");
+      exit();
+    }
+    ?>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
