@@ -2,50 +2,42 @@
 <html>
 <head>
     <title>Login Test</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Submit the login form when the user clicks the login button
+            $('#login-form').submit(function(event) {
+                event.preventDefault();
+                var username = $('#username').val();
+                var password = $('#password').val();
+                $.ajax({
+                    type: 'POST',
+                    url: 'login.php',
+                    data: { username: username, password: password },
+                    success: function(response) {
+                        // If login was successful, display a success message
+                        if (response === 'success') {
+                            $('#message').html('<p>Login successful!</p>');
+                        }
+                        // If login failed, display an error message
+                        else {
+                            $('#message').html('<p>Login failed. Please try again.</p>');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
-    <?php
-        session_start();
-
-        // Check if the user is already authenticated
-        if (isset($_SESSION['token']) && isset($_COOKIE['token']) && $_SESSION['token'] === $_COOKIE['token']) {
-            // User is already authenticated, redirect to login page
-            header('Location: login.html');
-            exit;
-        }
-
-        // Check if the login form was submitted
-        if (isset($_POST['username']) && isset($_POST['password'])) {
-            // Make a POST request to login.php to authenticate the user
-            $url = 'http://localhost/login.php';
-            $data = array('username' => $_POST['username'], 'password' => $_POST['password']);
-            $options = array(
-                'http' => array(
-                    'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-                    'method' => 'POST',
-                    'content' => http_build_query($data),
-                ),
-            );
-            $context = stream_context_create($options);
-            $result = file_get_contents($url, false, $context);
-
-            // Check if the authentication was successful
-            if ($result === 'success') {
-                // User is authenticated, redirect to login page
-                header('Location: login.html');
-                exit;
-            } else {
-                // Incorrect username or password, display error message
-                echo '<p>Incorrect username or password.</p>';
-            }
-        }
-    ?>
-    <form method="POST" action="login_test.html">
+    <h1>Login Test</h1>
+    <form id="login-form">
         <label for="username">Username:</label>
-        <input type="text" name="username" required><br>
+        <input type="text" id="username" name="username" required><br>
         <label for="password">Password:</label>
-        <input type="password" name="password" required><br>
+        <input type="password" id="password" name="password" required><br>
         <button type="submit">Login</button>
     </form>
+    <div id="message"></div>
 </body>
 </html>
