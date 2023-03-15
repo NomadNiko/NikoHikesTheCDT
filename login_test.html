@@ -1,21 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Protected Page</title>
+    <title>Login</title>
 </head>
 <body>
-	<?php
-		session_start();
-		if (isset($_SESSION['token']) && isset($_COOKIE['token']) && ($_SESSION['token'] === $_COOKIE['token'])) {
-			// User is authenticated
-			echo "<h1>Welcome to the protected page!</h1>";
-			echo "<p>This page is only accessible to authenticated users.</p>";
-			echo "<p><a href='logout.php'>Logout</a></p>";
-		} else {
-			// Redirect the user to the login page
-			header('Location: login.html');
-			exit;
-		}
-	?>
+    <?php
+        session_start();
+
+        // Check if the user is already authenticated
+        if (isset($_SESSION['token']) && isset($_COOKIE['token']) && $_SESSION['token'] === $_COOKIE['token']) {
+            // User is already authenticated, redirect to protected page
+            header('Location: protected_page.php');
+            exit;
+        }
+
+        // Check if the login form was submitted
+        if (isset($_POST['username']) && isset($_POST['password'])) {
+            // Connect to the database
+            $mysqli = new mysqli('localhost', 'root', 'root', 'businesses');
+
+            // Prepare the query
+            $stmt = $mysqli->prepare('SELECT business_password FROM businesses WHERE business_name = ?');
+            $stmt->bind_param('s', $_POST['username']);
+
+            // Execute the query
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            // Check if the query returned a result
+            if ($result->num_rows == 1) {
+                // Fetch the row and check the password
+                $row = $result->fetch_assoc();
+                if (password_verify($_POST['password'], $row['business_password'])) {
+                    // Generate a new token
+                    $token = bin2hex(random_bytes(32));
+
+                    // Store the token in the session
+                    $_SESSION['token'] = $token;
+
+                    // Set a cookie with the token that expires in 30 minutes
+                    setcookie('token', $token, time() + 1800, '/');
+
+                    // Redirect to protected page
+                    header('Location: protected_page.php');
+                    exit;
+                } else {
+                    // Incorrect password, display error message
+                    echo '<p>Incorrect username or password.</p>';
+                }
+            } else {
+                // No such user, display error message
+                echo '<p>Incorrect username or password.</p>';
+            }
+        }
+    ?>
+    <form method="POST" action="login.php">
+        <label for="username">Username:</label>
+        <input type="text" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br>
+        <button type="submit">Login</button>
+    </form>
 </body>
 </html>
