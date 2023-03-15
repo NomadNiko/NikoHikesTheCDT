@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 
   // Query the database for the user's username and password
-  $query = "SELECT business_name, business_password FROM users WHERE business_name = '$username' AND business_password = '$password'";
+  $query = "SELECT business_name, business_password FROM business WHERE business_name = '$username' AND business_password = '$password'";
   $result = mysqli_query($conn, $query);
 
   // Check if the query was successful
