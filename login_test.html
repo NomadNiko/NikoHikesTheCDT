@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>Login Test</title>
 </head>
 <body>
     <?php
@@ -9,52 +9,38 @@
 
         // Check if the user is already authenticated
         if (isset($_SESSION['token']) && isset($_COOKIE['token']) && $_SESSION['token'] === $_COOKIE['token']) {
-            // User is already authenticated, redirect to protected page
-            header('Location: protected_page.php');
+            // User is already authenticated, redirect to login page
+            header('Location: login.html');
             exit;
         }
 
         // Check if the login form was submitted
         if (isset($_POST['username']) && isset($_POST['password'])) {
-            // Connect to the database
-            $mysqli = new mysqli('localhost', 'root', 'root', 'businesses');
+            // Make a POST request to login.php to authenticate the user
+            $url = 'http://localhost/login.php';
+            $data = array('username' => $_POST['username'], 'password' => $_POST['password']);
+            $options = array(
+                'http' => array(
+                    'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method' => 'POST',
+                    'content' => http_build_query($data),
+                ),
+            );
+            $context = stream_context_create($options);
+            $result = file_get_contents($url, false, $context);
 
-            // Prepare the query
-            $stmt = $mysqli->prepare('SELECT business_password FROM businesses WHERE business_name = ?');
-            $stmt->bind_param('s', $_POST['username']);
-
-            // Execute the query
-            $stmt->execute();
-            $result = $stmt->get_result();
-
-            // Check if the query returned a result
-            if ($result->num_rows == 1) {
-                // Fetch the row and check the password
-                $row = $result->fetch_assoc();
-                if (password_verify($_POST['password'], $row['business_password'])) {
-                    // Generate a new token
-                    $token = bin2hex(random_bytes(32));
-
-                    // Store the token in the session
-                    $_SESSION['token'] = $token;
-
-                    // Set a cookie with the token that expires in 30 minutes
-                    setcookie('token', $token, time() + 1800, '/');
-
-                    // Redirect to protected page
-                    header('Location: protected_page.php');
-                    exit;
-                } else {
-                    // Incorrect password, display error message
-                    echo '<p>Incorrect username or password.</p>';
-                }
+            // Check if the authentication was successful
+            if ($result === 'success') {
+                // User is authenticated, redirect to login page
+                header('Location: login.html');
+                exit;
             } else {
-                // No such user, display error message
+                // Incorrect username or password, display error message
                 echo '<p>Incorrect username or password.</p>';
             }
         }
     ?>
-    <form method="POST" action="login.php">
+    <form method="POST" action="login_test.html">
         <label for="username">Username:</label>
         <input type="text" name="username" required><br>
         <label for="password">Password:</label>
