@@ -37,9 +37,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 
   // Check if the user's credentials were valid
-  if (mysqli_num_rows($result) == 1) {
-    // Set the authenticated session variable to true
-    $_SESSION['authenticated'] = true;
+if (mysqli_num_rows($result) == 1) {
+    // Generate a new token
+    $token = bin2hex(random_bytes(32));
+    // Store the token in the session
+    $_SESSION['token'] = $token;
+    // Set a cookie with the token that expires in 30 minutes
+    setcookie('token', $token, time() + 1800, '/');
+    // Redirect the user to the protected page
+    header('Location: protected_page.php');
+    exit;
+}
 
     // Redirect the user to the protected page
     header("Location: login.html");
