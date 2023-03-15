@@ -1,71 +1,40 @@
 <?php
-// Start the session
-session_start();
+// Connect to the database
+$dbhost = 'localhost';
+$dbuser = 'root';
+$dbpass = 'root';
+$dbname = 'businesses';
+$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
-// Check if the user is already logged in
-if (isset($_SESSION['authenticated']) && $_SESSION['authenticated']) {
-  // Redirect the user to the protected page
-  header("Location: protected_page.php");
-  exit;
+// Check if the connection was successful
+if (!$conn) {
+  die('Could not connect: ' . mysqli_error());
 }
 
-// Check if the form has been submitted
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  // Get the username and password from the form
-  $username = $_POST['username'];
-  $password = $_POST['password'];
+// Display a success message
+echo 'Connected successfully<br>';
 
-  // Connect to the database
-  $dbhost = 'localhost';
-  $dbuser = 'root';
-  $dbpass = 'root';
-  $dbname = 'businesses';
-  $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+// Query the database for the contents of the businesses table
+$query = "SELECT * FROM businesses";
+$result = mysqli_query($conn, $query);
 
-  // Check if the connection was successful
-  if (!$conn) {
-    die('Could not connect: ' . mysqli_error());
-  }
-
-  // Query the database for the user's username and password
-  $query = "SELECT business_name, business_password FROM users WHERE business_name = '$username' AND business_password = '$password'";
-  $result = mysqli_query($conn, $query);
-
-  // Check if the query was successful
-  if (!$result) {
-    die('Query failed: ' . mysqli_error($conn));
-  }
-
-  // Check if the user's credentials were valid
-  if (mysqli_num_rows($result) == 1) {
-    // Set the authenticated session variable to true
-    $_SESSION['authenticated'] = true;
-
-    // Redirect the user to the protected page
-    header("Location: protected_page.php");
-    exit;
-  } else {
-    // Display an error message
-    echo 'Invalid username or password.';
-  }
-
-  // Close the database connection
-  mysqli_close($conn);
+// Check if the query was successful
+if (!$result) {
+  die('Query failed: ' . mysqli_error($conn));
 }
+
+// Display the contents of the businesses table
+echo '<table>';
+echo '<tr><th>Business Name</th><th>Address</th><th>Phone</th></tr>';
+while ($row = mysqli_fetch_assoc($result)) {
+  echo '<tr>';
+  echo '<td>' . $row['business_name'] . '</td>';
+  echo '<td>' . $row['address'] . '</td>';
+  echo '<td>' . $row['phone'] . '</td>';
+  echo '</tr>';
+}
+echo '</table>';
+
+// Close the database connection
+mysqli_close($conn);
 ?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Login</title>
-  </head>
-  <body>
-    <h1>Login</h1>
-    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username"><br>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password"><br>
-      <input type="submit" value="Log In">
-    </form>
-  </body>
-</html>
