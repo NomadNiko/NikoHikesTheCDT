@@ -1,43 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Login Test</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Submit the login form when the user clicks the login button
-            $('#login-form').submit(function(event) {
-                event.preventDefault();
-                var username = $('#username').val();
-                var password = $('#password').val();
-                $.ajax({
-                    type: 'POST',
-                    url: 'login.php',
-                    data: { username: username, password: password },
-                    success: function(response) {
-                        // If login was successful, display a success message
-                        if (response === 'success') {
-                            $('#message').html('<p>Login successful!</p>');
-                        }
-                        // If login failed, display an error message
-                        else {
-                            $('#message').html('<p>Login failed. Please try again.</p>');
-                        }
-                    }
-                });
-            });
-        });
-    </script>
-</head>
-<body>
-    <h1>Login Test</h1>
-    <form id="login-form">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-        <button type="submit">Login</button>
+  <head>
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form action="login.php" method="post">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username"><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password"><br>
+      <input type="submit" value="Log In">
     </form>
-    <div id="message"></div>
-</body>
+  </body>
 </html>
