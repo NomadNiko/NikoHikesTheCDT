@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+  </head>
+  <body>
+    <?php
+      session_start();
+      if (isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true) {
+        // User is authenticated, display the protected content
+    ?>
+        <h1>Protected Content</h1>
+        <p>Welcome to the protected page!</p>
+        <!-- rest of the protected content -->
+    <?php
+      } else {
+        // User is not authenticated, display the login form
+    ?>
+        <h1>Login Form</h1>
+        <form action="login.php" method="post">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username"><br>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password"><br>
+
+          <input type="submit" value="Log In">
+        </form>
+    <?php
+      }
+    ?>
+  </body>
+</html>
