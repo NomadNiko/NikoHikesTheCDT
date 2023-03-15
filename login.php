@@ -3,7 +3,7 @@
 $dbhost = 'localhost';
 $dbuser = 'root';
 $dbpass = 'root';
-$dbname = 'businesses';
+$dbname = 'iexplor';
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
 // Check if the connection was successful
