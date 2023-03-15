@@ -2,12 +2,6 @@
 // Start the session
 session_start();
 
-// Check if the user is already logged in
-if (isset($_SESSION['authenticated']) && $_SESSION['authenticated']) {
-  // Redirect the user to the protected page
-  header("Location: login.html");
-  exit;
-}
 
 // Check if the form has been submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -50,7 +44,7 @@ if (mysqli_num_rows($result) == 1) {
 }
 
     // Redirect the user to the protected page
-    header("Location: login.html");
+    header("Location: login_test.html");
     exit;
   } else {
     // Display an error message
