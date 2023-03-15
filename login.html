@@ -8,6 +8,7 @@
     if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
       // Session variable 'authenticated' is not set to true
       header("Location: exit.html");
+	  echo "authenticated"
       exit();
     }
     ?>
