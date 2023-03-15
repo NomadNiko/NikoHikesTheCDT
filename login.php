@@ -39,7 +39,8 @@ if (mysqli_num_rows($result) == 1) {
     // Set a cookie with the token that expires in 30 minutes
     setcookie('token', $token, time() + 1800, '/');
     // Redirect the user to the protected page
-    header('Location: protected_page.php');
+	alert("Login Successful")
+    header('Location: login_test.html');
     exit;
 }
 
@@ -48,26 +49,11 @@ if (mysqli_num_rows($result) == 1) {
     exit;
   } else {
     // Display an error message
-    echo 'Invalid username or password.';
+    alert("Invalid username or password.");
   }
 
   // Close the database connection
   mysqli_close($conn);
 }
 ?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Login</title>
-  </head>
-  <body>
-    <h1>Login</h1>
-    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username"><br>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password"><br>
-      <input type="submit" value="Log In">
-    </form>
-  </body>
-</html>
+
